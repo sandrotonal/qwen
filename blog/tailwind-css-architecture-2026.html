@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Ömer Özbay - Full-Stack Engineer & Bandırma 17 Eylül University Computer Engineering student building AI-powered SaaS applications.">
+  <meta name="keywords" content="Ömer Özbay, Full Stack Developer, Software Engineer, Web Development, React, Next.js, AI, SaaS, Bandırma 17 Eylül Üniversitesi, Bilgisayar Mühendisliği">
+  <meta property="og:title" content="Ömer Özbay — Full Stack Engineer">
+  <meta property="og:description" content="Computer Engineering student building AI-powered SaaS applications and modern web experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://omerozbay.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ömer Özbay — Full Stack Engineer">
+  <meta name="twitter:description" content="Computer Engineering student building AI-powered SaaS applications and modern web experiences.">
+  <link rel="canonical" href="https://omerozbay.vercel.app/">
+  <title>Tailwind CSS Mimarisi: Scale Edilebilir Design Systems — Ömer Özbay</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Ömer Özbay - Full-Stack Engineer & Bandırma 17 Eylül University Computer Engineering student building AI-powered SaaS applications.">
+  <meta name="keywords" content="Ömer Özbay, Full Stack Developer, Software Engineer, Web Development, React, Next.js, AI, SaaS, Bandırma 17 Eylül Üniversitesi, Bilgisayar Mühendisliği">
+  <meta property="og:title" content="Ömer Özbay — Full Stack Engineer">
+  <meta property="og:description" content="Computer Engineering student building AI-powered SaaS applications and modern web experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://omerozbay.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ömer Özbay — Full Stack Engineer">
+  <meta name="twitter:description" content="Computer Engineering student building AI-powered SaaS applications and modern web experiences.">
+  <link rel="canonical" href="https://omerozbay.vercel.app/">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] },
+          colors: {
+            surface: { DEFAULT: '#141414', light: '#F5F5F5' },
+            card: { DEFAULT: '#1A1A1A', light: '#FFFFFF' },
+            border: { DEFAULT: '#262626', light: '#E5E5E5' },
+            accent: { DEFAULT: '#3B82F6', light: '#2563EB', soft: '#60A5FA' },
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="../css/styles.css?v=5">
+  <style>
+    .prose h2 { font-size: 1.4rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+    .prose h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+    .prose p { margin-bottom: 1.1rem; line-height: 1.8; }
+    .prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .prose ul li { margin-bottom: 0.4rem; line-height: 1.7; }
+    .prose code { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; padding: 2px 6px; border-radius: 4px; }
+    .dark .prose code { background: #1f1f1f; color: #60A5FA; }
+    .prose code { background: #f0f0f0; color: #2563EB; }
+    .prose pre { margin: 1.5rem 0; }
+    .dark .prose { color: #D4D4D4; }
+    .prose { color: #404040; }
+    .dark .prose h2, .dark .prose h3 { color: #FAFAFA; }
+    .prose h2, .prose h3 { color: #171717; }
+  </style>
+  <style>
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+    html { -webkit-tap-highlight-color: transparent; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: currentColor;
+      transform-origin: bottom right;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    .nav-active::after {
+      transform: scaleX(1);
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRACKINGID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TRACKINGID');
+  </script>
+  <meta name="google-site-verification" content="OB7WLZaiiMlTjwYtUOACquTXNpK4ZHEbcA49gz6LOxA" />
+</head>
+<body class="min-h-screen bg-[#FAFAFA] dark:bg-[#0A0A0A] text-neutral-800 dark:text-neutral-200 antialiased selection:bg-neutral-200 dark:selection:bg-neutral-800 selection:text-neutral-900 dark:selection:text-white font-sans">
+  <div id="scroll-progress" class="h-[2px] bg-neutral-900 dark:bg-white fixed top-0 left-0 z-[100] transition-all duration-300 ease-out" style="width: var(--scroll-width, 0%);"></div>
+  
+  <div id="toast" class="toast fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] px-5 py-3 rounded-full text-sm font-medium shadow-2xl flex items-center gap-2 dark:bg-[#1A1A1A] bg-white border dark:border-neutral-800 border-neutral-200 transition-all duration-300">
+    <span class="iconify text-green-500" data-icon="lucide:check-circle-2"></span>
+    <span id="toast-message"></span>
+  </div>
+
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[#FAFAFA]/70 dark:bg-[#0A0A0A]/70">
+    <div class="max-w-4xl mx-auto px-5 h-20 sm:h-24 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center group shrink-0">
+        <span class="font-extrabold text-[16px] sm:text-[18px] dark:text-white text-neutral-900 tracking-[0.15em] uppercase" style="font-family: 'Inter', sans-serif;">Ömer Özbay</span>
+      </a>
+      
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="../index.html" class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-900 dark:text-white nav-active">Blog</a>
+        <a href="../hakkimda.html" class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white">Hakkımda</a>
+        <a href="../iletisim.html" class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white">İletişim</a>
+      </nav>
+      
+      <div class="flex items-center gap-4">
+        <button onclick="toggleTheme()" class="flex items-center justify-center dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 shrink-0" title="Tema">
+          <span class="iconify text-[20px] theme-icon dark-icon" data-icon="solar:moon-linear"></span>
+          <span class="iconify text-[20px] theme-icon light-icon hidden" data-icon="solar:sun-linear"></span>
+        </button>
+        <button onclick="toggleMobileMenu()" class="flex md:hidden items-center justify-center dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 shrink-0">
+          <span class="iconify text-[24px]" data-icon="solar:hamburger-menu-linear"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/20 dark:bg-black/60 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-all duration-400 ease-out" onclick="toggleMobileMenu()"></div>
+  
+  <div id="mobile-menu" class="fixed top-0 right-0 w-full sm:w-80 h-screen bg-[#FAFAFA]/95 dark:bg-[#0A0A0A]/95 backdrop-blur-xl border-l border-black/5 dark:border-white/5 z-[70] transform translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col items-center justify-center">
+    <button onclick="toggleMobileMenu()" class="absolute top-8 right-6 w-10 h-10 flex items-center justify-center dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors">
+      <span class="iconify text-2xl" data-icon="lucide:x"></span>
+    </button>
+    
+    <nav class="flex flex-col items-center gap-8 text-center">
+      <a href="../index.html" class="text-[22px] font-medium tracking-wide transition-colors duration-400 text-neutral-900 dark:text-white opacity-100">Blog</a>
+      <a href="../hakkimda.html" class="text-[22px] font-medium tracking-wide transition-colors duration-400 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white opacity-90 hover:opacity-100">Hakkımda</a>
+      <a href="../iletisim.html" class="text-[22px] font-medium tracking-wide transition-colors duration-400 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white opacity-90 hover:opacity-100">İletişim</a>
+    </nav>
+    
+    <div class="absolute bottom-12 flex gap-6">
+      <a href="https://github.com/sandrotonal" target="_blank" class="dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300"><span class="iconify text-2xl" data-icon="mdi:github"></span></a>
+      <a href="https://x.com/gucluyumhe" target="_blank" class="dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300"><span class="iconify text-[22px]" data-icon="ri:twitter-x-fill"></span></a>
+      <a href="https://t.me/islamakhachev" target="_blank" class="dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300"><span class="iconify text-2xl" data-icon="mdi:telegram"></span></a>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16 flex gap-12">
+    <div class="flex-1 min-w-0">
+    <div class="rounded-2xl overflow-hidden mb-10 aspect-[21/9] page-enter">
+      <img src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=1400&h=560&fit=crop" alt="Tailwind CSS Architecture" class="w-full h-full object-cover" loading="lazy" decoding="async">
+    </div>
+    <div class="flex flex-wrap items-center gap-3 mb-4 page-enter-delay-1">
+      <span class="px-3 py-1 rounded-full text-xs font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">CSS</span>
+      <span class="px-3 py-1 rounded-full text-xs font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">Design System</span>
+    </div>
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight dark:text-white text-neutral-900 leading-tight mb-4 page-enter-delay-1">
+      Tailwind CSS Mimarisi: Scale Edilebilir Design Systems
+    </h1>
+    <div class="flex flex-wrap items-center gap-4 text-sm dark:text-neutral-500 text-neutral-400 mb-10 pb-10 border-b dark:border-border border-border-light page-enter-delay-2">
+      <span class="flex items-center gap-1.5"><span class="iconify" data-icon="lucide:calendar" data-width="14"></span>3 Nisan 2026</span>
+      <span class="flex items-center gap-1.5"><span class="iconify" data-icon="lucide:clock" data-width="14"></span>11 dk okuma</span>
+      <span class="flex items-center gap-1.5"><span class="iconify" data-icon="lucide:eye" data-width="14"></span>650 görüntülenme</span>
+    </div>
+
+    <article class="prose max-w-none page-enter-delay-3">
+      <p>Tailwind CSS, utility-first yaklaşımıyla CSS yazma şeklimizi değiştirdi. Ancak büyük projelerde "class soup" problemine dönüşebilir. Bu yazıda, Tailwind'i scale edilebilir bir mimaride nasıl kullanacağınızı anlatıyorum.</p>
+
+      <h2 id="design-tokens">1. Design Tokens ile Başlayın</h2>
+      <p>Tailwind config, design system'inizin tek kaynağı olmalı. Renkler, spacing, typography gibi tüm token'ları burada tanımlayın:</p>
+      <pre><div class="prose-code" id="code-block-1">// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        // Brand colors
+        primary: {
+          50: '#f0f9ff',
+          500: '#0ea5e9',
+          900: '#0c4a6e',
+        },
+        // Semantic colors
+        surface: { DEFAULT: '#141414', light: '#F5F5F5' },
+        border: { DEFAULT: '#262626', light: '#E5E5E5' },
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+    },
+  },
+}</div></pre>
+
+      <h2 id="component-extraction">2. Component Extraction</h2>
+      <p>Her yerde aynı class组合'larını tekrar etmek yerine, component'lere extract edin:</p>
+      <pre><div class="prose-code" id="code-block-2">// Kötü — her yerde tekrar
+&lt;button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"&gt;
+  Click me
+&lt;/button&gt;
+
+// İyi — component olarak
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-primary-500 text-white rounded-lg 
+           hover:bg-primary-600 focus:ring-2 focus:ring-primary-500 
+           focus:ring-offset-2 transition-colors;
+  }
+}
+
+// Usage
+&lt;button class="btn-primary"&gt;Click me&lt;/button&gt;</div></pre>
+
+      <h2 id="layer-directive">3. @layer Direktifi Kullanın</h2>
+      <p>Tailwind'in layer sistemi, CSS specificity sorunlarını çözer:</p>
+      <pre><div class="prose-code" id="code-block-3">@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Base styles — en düşük specificity */
+  h1 { @apply text-3xl font-bold text-neutral-900 dark:text-white; }
+  a { @apply text-primary-500 hover:text-primary-600; }
+}
+
+@layer components {
+  /* Component styles — orta specificity */
+  .card { @apply rounded-xl border bg-card p-6; }
+  .input { @apply px-3 py-2 rounded-lg border bg-surface; }
+}
+
+@layer utilities {
+  /* Utility overrides — en yüksek specificity */
+  .text-balance { text-wrap: balance; }
+  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+}</div></pre>
+
+      <h2 id="dark-mode">4. Dark Mode Stratejisi</h2>
+      <p><code>darkMode: 'class'</code> kullanarak manuel toggle yapın:</p>
+      <pre><div class="prose-code" id="code-block-4">// tailwind.config.js
+module.exports = {
+  darkMode: 'class',
+}
+
+// Toggle fonksiyonu
+function toggleDarkMode() {
+  document.documentElement.classList.toggle('dark');
+  localStorage.setItem('theme', 
+    document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+  );
+}
+
+// Init
+if (localStorage.theme === 'dark' || 
+    (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark');
+}</div></pre>
+
+      <h2 id="responsive">5. Responsive Design Pattern</h2>
+      <p>Mobile-first yaklaşımını tutarlı uygulayın:</p>
+      <pre><div class="prose-code" id="code-block-5">// Kötü — desktop-first
+&lt;div class="hidden md:block lg:flex"&gt;
+
+// İyi — mobile-first
+&lt;div class="flex md:hidden lg:flex"&gt;
+
+// Grid pattern
+&lt;div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"&gt;
+  &lt;!-- Cards --&gt;
+&lt;/div&gt;</div></pre>
+
+      <h2 id="plugins">6. Custom Plugins</h2>
+      <p>Tekrar eden pattern'leri plugin olarak yazın:</p>
+      <pre><div class="prose-code" id="code-block-6">// tailwind.config.js
+const plugin = require('tailwindcss/plugin');
+
+module.exports = {
+  plugins: [
+    plugin(function({ addComponents, theme }) {
+      addComponents({
+        '.card-glow': {
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          '&:hover': {
+            transform: 'translateY(-4px)',
+            boxShadow: `0 20px 40px ${theme('colors.black')}40`,
+            borderColor: theme('colors.primary.500'),
+          },
+        },
+      });
+    }),
+  ],
+}</div></pre>
+
+      <h2 id="bundle-opt">7. Bundle Size Optimizasyonu</h2>
+      <p>Production build'de unused CSS'i temizleyin:</p>
+      <pre><div class="prose-code" id="code-block-7">// tailwind.config.js
+module.exports = {
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  safelist: [
+    // Dinamik class'lar için
+    { pattern: /^bg-(red|green|blue)-500$/ },
+  ],
+}</div></pre>
+      <p>Bu konfigürasyon, 50KB'lık Tailwind bundle'ını 8KB'a düşürdü.</p>
+
+      <h2 id="sonuc">Sonuç</h2>
+      <p>Tailwind CSS, doğru mimariyle scale edilebilir bir design system'in temelini oluşturabilir. Design tokens, component extraction, layer kullanımı ve bundle optimizasyonu — bu 4 pilier, maintainable Tailwind CSS mimarinizin temeli olacak.</p>
+    </article>
+
+    <div class="mt-16 pt-8 border-t border-black/5 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-1">
+        <span class="text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-white">Faydalı buldunuz mu?</span>
+        <span class="text-sm text-neutral-500 dark:text-neutral-400">Bu içeriği kendi ağınızla paylaşarak bana destek olabilirsiniz.</span>
+      </div>
+      <div class="flex items-center gap-3 w-full sm:w-auto">
+        <button onclick="showToast('Link kopyalandı!')" class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+          <span class="iconify" data-icon="lucide:share-2" data-width="14"></span> Paylaş
+        </button>
+        <a href="../index.html" class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:opacity-90 transition-colors">
+          Tüm Yazılar <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <p class="text-xs font-mono tracking-[0.15em] uppercase dark:text-neutral-600 text-neutral-400 mb-4">Sonraki Yazı</p>
+      <a href="rust-webassembly.html" class="card-glow flex items-center gap-5 p-5 rounded-2xl border dark:border-border border-border-light dark:bg-card bg-white group">
+        <div class="w-16 h-16 rounded-xl overflow-hidden shrink-0">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=128&h=128&fit=crop" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs dark:text-neutral-500 text-neutral-400 mb-1">Rust · 10 dk okuma</p>
+          <p class="text-sm font-semibold dark:text-white text-neutral-900 group-hover:text-accent transition-colors line-clamp-2">Rust ile WebAssembly: Tarayıcıda Native Performans</p>
+        </div>
+        <span class="iconify dark:text-neutral-600 text-neutral-300 group-hover:text-accent transition-colors shrink-0" data-icon="lucide:arrow-right" data-width="18"></span>
+      </a>
+    </div>
+  </div>
+
+  <aside class="hidden xl:block w-52 shrink-0">
+    <div class="toc-sidebar">
+      <p class="text-xs font-mono tracking-[0.15em] uppercase dark:text-neutral-600 text-neutral-400 mb-4">İçindekiler</p>
+      <nav id="toc" class="space-y-0.5">
+        <a href="#design-tokens" class="toc-link">Design Tokens</a>
+        <a href="#component-extraction" class="toc-link">Component</a>
+        <a href="#layer-directive" class="toc-link">@layer</a>
+        <a href="#dark-mode" class="toc-link">Dark Mode</a>
+        <a href="#responsive" class="toc-link">Responsive</a>
+        <a href="#plugins" class="toc-link">Plugins</a>
+        <a href="#bundle-opt" class="toc-link">Bundle Opt</a>
+        <a href="#sonuc" class="toc-link">Sonuç</a>
+      </nav>
+    </div>
+  </aside>
+</main>
+
+  <footer class="mt-20 py-8 border-t border-black/5 dark:border-white/5 mx-auto max-w-4xl px-5 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-4 text-sm font-medium dark:text-neutral-500 text-neutral-500">
+      <a href="../index.html" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Blog</a>
+      <span>&middot;</span>
+      <a href="../hakkimda.html" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Hakkımda</a>
+      <span>&middot;</span>
+      <a href="../iletisim.html" class="hover:text-neutral-900 dark:hover:text-white transition-colors">İletişim</a>
+    </div>
+    
+    <div class="text-[12px] dark:text-neutral-500 text-neutral-400 flex items-center gap-1">
+      © 2026 Ömer Özbay.
+    </div>
+
+    <div class="flex items-center gap-4">
+      <a href="https://github.com/sandrotonal" target="_blank" class="dark:text-neutral-500 text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"><span class="iconify text-[18px]" data-icon="mdi:github"></span></a>
+      <a href="https://x.com/gucluyumhe" target="_blank" class="dark:text-neutral-500 text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"><span class="iconify text-[16px]" data-icon="ri:twitter-x-fill"></span></a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
