@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Ömer Özbay - Full-Stack Engineer & Bandırma 17 Eylül University Computer Engineering student building AI-powered SaaS applications.">
+  <meta name="keywords" content="Ömer Özbay, Full Stack Developer, Software Engineer, Web Development, React, Next.js, AI, SaaS, Bandırma 17 Eylül Üniversitesi, Bilgisayar Mühendisliği">
+  <meta property="og:title" content="Ömer Özbay — Full Stack Engineer">
+  <meta property="og:description" content="Computer Engineering student building AI-powered SaaS applications and modern web experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gucluyumhe.dev/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ömer Özbay — Full Stack Engineer">
+  <meta name="twitter:description" content="Computer Engineering student building AI-powered SaaS applications and modern web experiences.">
+  <link rel="canonical" href="https://gucluyumhe.dev/">
+  <title>Web Vitals Rehberi 2024 — Ömer Özbay</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Ömer Özbay - Full-Stack Engineer & Bandırma 17 Eylül University Computer Engineering student building AI-powered SaaS applications.">
+  <meta name="keywords" content="Ömer Özbay, Full Stack Developer, Software Engineer, Web Development, React, Next.js, AI, SaaS, Bandırma 17 Eylül Üniversitesi, Bilgisayar Mühendisliği">
+  <meta property="og:title" content="Ömer Özbay — Full Stack Engineer">
+  <meta property="og:description" content="Computer Engineering student building AI-powered SaaS applications and modern web experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gucluyumhe.dev/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ömer Özbay — Full Stack Engineer">
+  <meta name="twitter:description" content="Computer Engineering student building AI-powered SaaS applications and modern web experiences.">
+  <link rel="canonical" href="https://gucluyumhe.dev/">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] },
+          colors: {
+            surface: { DEFAULT: '#141414', light: '#F5F5F5' },
+            card: { DEFAULT: '#1A1A1A', light: '#FFFFFF' },
+            border: { DEFAULT: '#262626', light: '#E5E5E5' },
+            accent: { DEFAULT: '#3B82F6', light: '#2563EB', soft: '#60A5FA' },
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="../css/styles.css?v=5">
+  <style>
+    .prose h2 { font-size: 1.4rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+    .prose h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+    .prose p { margin-bottom: 1.1rem; line-height: 1.8; }
+    .prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .prose ul li { margin-bottom: 0.4rem; line-height: 1.7; }
+    .prose code { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; padding: 2px 6px; border-radius: 4px; }
+    .dark .prose code { background: #1f1f1f; color: #60A5FA; }
+    .prose code { background: #f0f0f0; color: #2563EB; }
+    .prose pre { margin: 1.5rem 0; }
+    .dark .prose { color: #D4D4D4; }
+    .prose { color: #404040; }
+    .dark .prose h2, .dark .prose h3 { color: #FAFAFA; }
+    .prose h2, .prose h3 { color: #171717; }
+    .prose strong { color: inherit; font-weight: 600; }
+    .metric-card { border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+  </style>
+  <style>
+    /* Modern Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+    html { -webkit-tap-highlight-color: transparent; }
+    
+    /* Elegant underline animation for nav */
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: currentColor;
+      transform-origin: bottom right;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    .nav-active::after {
+      transform: scaleX(1);
+    }
+  </style>
+
+  <!-- Google Analytics & Perf -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRACKINGID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TRACKINGID');
+  </script>
+</head>
+<body class="min-h-screen bg-[#FAFAFA] dark:bg-[#0A0A0A] text-neutral-800 dark:text-neutral-200 antialiased selection:bg-neutral-200 dark:selection:bg-neutral-800 selection:text-neutral-900 dark:selection:text-white font-sans">
+  <div id="scroll-progress" class="h-[2px] bg-neutral-900 dark:bg-white fixed top-0 left-0 z-[100] transition-all duration-300 ease-out" style="width: var(--scroll-width, 0%);"></div>
+  
+  <div id="toast" class="toast fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] px-5 py-3 rounded-full text-sm font-medium shadow-2xl flex items-center gap-2 dark:bg-[#1A1A1A] bg-white border dark:border-neutral-800 border-neutral-200 transition-all duration-300">
+    <span class="iconify text-green-500" data-icon="lucide:check-circle-2"></span>
+    <span id="toast-message"></span>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[#FAFAFA]/70 dark:bg-[#0A0A0A]/70">
+    <div class="max-w-4xl mx-auto px-5 h-20 sm:h-24 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center group shrink-0">
+        <span class="font-extrabold text-[16px] sm:text-[18px] dark:text-white text-neutral-900 tracking-[0.15em] uppercase" style="font-family: 'Inter', sans-serif;">Ömer Özbay</span>
+      </a>
+      
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="../index.html" class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-900 dark:text-white nav-active">Blog</a>
+        <a href="../hakkimda.html" class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white">Hakkımda</a>
+        <a href="../iletisim.html" class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white">İletişim</a>
+      </nav>
+      
+      <div class="flex items-center gap-4">
+        <button onclick="toggleTheme()" class="flex items-center justify-center dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 shrink-0" title="Tema">
+          <span class="iconify text-[20px] theme-icon dark-icon" data-icon="solar:moon-linear"></span>
+          <span class="iconify text-[20px] theme-icon light-icon hidden" data-icon="solar:sun-linear"></span>
+        </button>
+        <button onclick="toggleMobileMenu()" class="flex md:hidden items-center justify-center dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 shrink-0">
+          <span class="iconify text-[24px]" data-icon="solar:hamburger-menu-linear"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  
+  
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/20 dark:bg-black/60 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-all duration-400 ease-out" onclick="toggleMobileMenu()"></div>
+  
+  <div id="mobile-menu" class="fixed top-0 right-0 w-full sm:w-80 h-screen bg-[#FAFAFA]/95 dark:bg-[#0A0A0A]/95 backdrop-blur-xl border-l border-black/5 dark:border-white/5 z-[70] transform translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col items-center justify-center">
+    <button onclick="toggleMobileMenu()" class="absolute top-8 right-6 w-10 h-10 flex items-center justify-center dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors">
+      <span class="iconify text-2xl" data-icon="lucide:x"></span>
+    </button>
+    
+    <nav class="flex flex-col items-center gap-8 text-center">
+      <a href="../index.html" class="text-[22px] font-medium tracking-wide transition-colors duration-400 text-neutral-900 dark:text-white opacity-100">Blog</a>
+      <a href="../hakkimda.html" class="text-[22px] font-medium tracking-wide transition-colors duration-400 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white opacity-90 hover:opacity-100">Hakkımda</a>
+      <a href="../iletisim.html" class="text-[22px] font-medium tracking-wide transition-colors duration-400 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white opacity-90 hover:opacity-100">İletişim</a>
+    </nav>
+    
+    <div class="absolute bottom-12 flex gap-6">
+      <a href="https://github.com/sandrotonal" target="_blank" class="dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300"><span class="iconify text-2xl" data-icon="mdi:github"></span></a>
+      <a href="https://x.com/gucluyumhe" target="_blank" class="dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300"><span class="iconify text-[22px]" data-icon="ri:twitter-x-fill"></span></a>
+      <a href="https://t.me/islamakhachev" target="_blank" class="dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300"><span class="iconify text-2xl" data-icon="mdi:telegram"></span></a>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16 flex gap-12">
+    <div class="flex-1 min-w-0">
+    <div class="rounded-2xl overflow-hidden mb-10 aspect-[21/9] page-enter">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=560&fit=crop" alt="Web Vitals" class="w-full h-full object-cover" loading="lazy" decoding="async">
+    </div>
+
+    <div class="flex flex-wrap items-center gap-3 mb-4 page-enter-delay-1">
+      <span class="px-3 py-1 rounded-full text-xs font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">Performance</span>
+      <span class="px-3 py-1 rounded-full text-xs font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">Web</span>
+    </div>
+
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight dark:text-white text-neutral-900 leading-tight mb-4 page-enter-delay-1">
+      Core Web Vitals 2024: INP Metriği ve Gerçek Dünya Optimizasyonları
+    </h1>
+
+    <div class="flex flex-wrap items-center gap-4 text-sm dark:text-neutral-500 text-neutral-400 mb-10 pb-10 border-b dark:border-border border-border-light page-enter-delay-2">
+      <span class="flex items-center gap-1.5"><span class="iconify" data-icon="lucide:calendar" data-width="14"></span>5 Mart 2024</span>
+      <span class="flex items-center gap-1.5"><span class="iconify" data-icon="lucide:clock" data-width="14"></span>13 dk okuma</span>
+      <span class="flex items-center gap-1.5"><span class="iconify" data-icon="lucide:eye" data-width="14"></span>6.8K görüntülenme</span>
+    </div>
+
+    <article class="prose max-w-none page-enter-delay-3">
+      <p>Mart 2024'te Google, FID (First Input Delay) metriğini resmi olarak INP (Interaction to Next Paint) ile değiştirdi. Bu değişiklik, Core Web Vitals'ı ölçme ve optimize etme şeklimizi köklü biçimde etkiliyor.</p>
+
+      <h2>INP Nedir ve Neden Önemli?</h2>
+      <p>INP, kullanıcının sayfayla yaptığı tüm etkileşimlerin (tıklama, klavye, dokunma) yanıt sürelerini ölçer ve en kötü %95'lik dilimi raporlar. FID yalnızca ilk etkileşimi ölçüyordu — INP ise tüm oturumu kapsar.</p>
+
+      <!-- Metrik kartları -->
+      <div class="not-prose grid grid-cols-3 gap-3 my-6">
+        <div class="dark:bg-green-500/10 bg-green-50 border dark:border-green-500/20 border-green-200 rounded-xl p-4 text-center">
+          <p class="text-lg font-bold text-green-500">≤ 200ms</p>
+          <p class="text-xs dark:text-green-400/70 text-green-600 mt-1">İyi</p>
+        </div>
+        <div class="dark:bg-yellow-500/10 bg-yellow-50 border dark:border-yellow-500/20 border-yellow-200 rounded-xl p-4 text-center">
+          <p class="text-lg font-bold text-yellow-500">≤ 500ms</p>
+          <p class="text-xs dark:text-yellow-400/70 text-yellow-600 mt-1">İyileştirme Gerekli</p>
+        </div>
+        <div class="dark:bg-red-500/10 bg-red-50 border dark:border-red-500/20 border-red-200 rounded-xl p-4 text-center">
+          <p class="text-lg font-bold text-red-500">> 500ms</p>
+          <p class="text-xs dark:text-red-400/70 text-red-600 mt-1">Kötü</p>
+        </div>
+      </div>
+
+      <h2>INP'yi Kötüleştiren Başlıca Nedenler</h2>
+      <ul>
+        <li><strong>Uzun JavaScript görevleri:</strong> Ana thread'i 50ms'den fazla bloke eden her görev INP'yi artırır</li>
+        <li><strong>Gereksiz re-render'lar:</strong> React'ta state güncellemeleri tüm component tree'yi yeniden render edebilir</li>
+        <li><strong>Senkron DOM manipülasyonu:</strong> Layout thrashing — okuma ve yazma işlemlerinin karışması</li>
+        <li><strong>Ağır event handler'lar:</strong> Click handler içinde senkron hesaplama</li>
+      </ul>
+
+      <h2>Uzun Görevleri Parçalama</h2>
+      <pre><div class="prose-code" id="code-block-1">// Kötü: Ana thread'i bloke ediyor
+function processLargeArray(items) {
+  return items.map(item => heavyComputation(item));
+}
+
+// İyi: scheduler.yield() ile parçalara böl
+async function processLargeArray(items) {
+  const results = [];
+  for (const item of items) {
+    results.push(heavyComputation(item));
+    // Her iterasyonda browser'a nefes aldır
+    if (results.length % 50 === 0) {
+      await scheduler.yield();
+    }
+  }
+  return results;
+}</div></pre>
+
+      <h2>React'ta INP Optimizasyonu</h2>
+      <pre><div class="prose-code" id="code-block-2">import { useTransition, useDeferredValue } from 'react';
+
+function SearchResults({ query }) {
+  const [isPending, startTransition] = useTransition();
+  const [results, setResults] = useState([]);
+
+  function handleSearch(value) {
+    // Acil: input güncelleme
+    setInputValue(value);
+    // Ertelenebilir: ağır filtreleme
+    startTransition(() => {
+      setResults(filterItems(value));
+    });
+  }
+
+  return (
+    &lt;div style={{ opacity: isPending ? 0.7 : 1 }}&gt;
+      {results.map(r =&gt; &lt;ResultItem key={r.id} {...r} /&gt;)}
+    &lt;/div&gt;
+  );
+}</div></pre>
+
+      <h2>Layout Thrashing'i Önleme</h2>
+      <pre><div class="prose-code" id="code-block-3">// Kötü: Her iterasyonda layout hesaplanıyor
+elements.forEach(el => {
+  const height = el.offsetHeight; // okuma → layout tetikler
+  el.style.height = height + 10 + 'px'; // yazma → layout geçersiz kılar
+});
+
+// İyi: Önce hepsini oku, sonra hepsini yaz
+const heights = elements.map(el => el.offsetHeight); // toplu okuma
+elements.forEach((el, i) => {
+  el.style.height = heights[i] + 10 + 'px'; // toplu yazma
+});</div></pre>
+
+      <h2>LCP İçin Kritik: fetchpriority</h2>
+      <p>2024'te tarayıcı desteği olgunlaştı. Hero image'ınıza <code>fetchpriority="high"</code> eklemek LCP'yi ortalama %20 iyileştiriyor.</p>
+      <pre><div class="prose-code" id="code-block-4">&lt;img
+  src="/hero.webp"
+  fetchpriority="high"
+  loading="eager"
+  decoding="async"
+  alt="Hero"
+/&gt;</div></pre>
+
+      <h2>CLS İçin: Boyut Rezervasyonu</h2>
+      <ul>
+        <li>Tüm img ve video elementlerine <code>width</code> ve <code>height</code> attribute'u ekleyin</li>
+        <li>Font yüklenirken <code>font-display: optional</code> veya <code>size-adjust</code> kullanın</li>
+        <li>Dinamik içerik için <code>min-height</code> ile alan rezerve edin</li>
+      </ul>
+
+      <h2>Sonuç</h2>
+      <p>INP, kullanıcı deneyimini FID'den çok daha gerçekçi ölçüyor. Özellikle React uygulamalarında <code>useTransition</code>, <code>useDeferredValue</code> ve <code>scheduler.yield()</code> kombinasyonu INP skorunuzu dramatik biçimde iyileştirebilir. Chrome DevTools'un "Performance" sekmesindeki "Interactions" bölümü ile kendi sitenizi analiz etmeye hemen başlayabilirsiniz.</p>
+    </article>
+
+      
+      <div class="mt-16 pt-8 border-t border-black/5 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-1">
+          <span class="text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-white">Faydalı buldunuz mu?</span>
+          <span class="text-sm text-neutral-500 dark:text-neutral-400">Bu içeriği kendi ağınızla paylaşarak bana destek olabilirsiniz.</span>
+        </div>
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <button onclick="showToast('Link kopyalandı!')" class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+            <span class="iconify" data-icon="lucide:share-2" data-width="14"></span> Paylaş
+          </button>
+          <a href="../index.html" class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:opacity-90 transition-colors">
+            Tüm Yazılar <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="mt-8">
+        <p class="text-xs font-mono tracking-[0.15em] uppercase dark:text-neutral-600 text-neutral-400 mb-4">Sonraki Yazı</p>
+        <a href="react-server-components.html" class="card-glow flex items-center gap-5 p-5 rounded-2xl border dark:border-border border-border-light dark:bg-card bg-white group">
+          <div class="w-16 h-16 rounded-xl overflow-hidden shrink-0">
+            <img src="https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=128&h=128&fit=crop" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs dark:text-neutral-500 text-neutral-400 mb-1">React · 12 dk okuma</p>
+            <p class="text-sm font-semibold dark:text-white text-neutral-900 group-hover:text-accent transition-colors line-clamp-2">React 19 ile Server Components: Derinlemesine İnceleme</p>
+          </div>
+          <span class="iconify dark:text-neutral-600 text-neutral-300 group-hover:text-accent transition-colors shrink-0" data-icon="lucide:arrow-right" data-width="18"></span>
+        </a>
+      </div>
+    </div>
+
+    <aside class="hidden xl:block w-52 shrink-0">
+      <div class="toc-sidebar">
+        <p class="text-xs font-mono tracking-[0.15em] uppercase dark:text-neutral-600 text-neutral-400 mb-4">İçindekiler</p>
+        <nav id="toc" class="space-y-0.5">
+          <a href="#inp-nedir" class="toc-link">INP Nedir?</a>
+          <a href="#inp-kotulestiren-nedenler" class="toc-link">Kötüleştiren Nedenler</a>
+          <a href="#uzun-gorevleri-parcalama" class="toc-link">Görevleri Parçalama</a>
+          <a href="#react-inp-optimizasyonu" class="toc-link">React Optimizasyonu</a>
+          <a href="#layout-thrashing" class="toc-link">Layout Thrashing</a>
+          <a href="#lcp-fetchpriority" class="toc-link">fetchpriority</a>
+          <a href="#cls-boyut-rezervasyonu" class="toc-link">CLS Rezervasyon</a>
+          <a href="#sonuc" class="toc-link">Sonuç</a>
+        </nav>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="mt-20 py-8 border-t border-black/5 dark:border-white/5 mx-auto max-w-4xl px-5 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-4 text-sm font-medium dark:text-neutral-500 text-neutral-500">
+      <a href="../index.html" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Blog</a>
+      <span>&middot;</span>
+      <a href="../hakkimda.html" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Hakkımda</a>
+      <span>&middot;</span>
+      <a href="../iletisim.html" class="hover:text-neutral-900 dark:hover:text-white transition-colors">İletişim</a>
+    </div>
+    
+    <div class="text-[12px] dark:text-neutral-500 text-neutral-400 flex items-center gap-1">
+      © 2026 Ömer Özbay.
+    </div>
+
+    <div class="flex items-center gap-4">
+      <a href="https://github.com/sandrotonal" target="_blank" class="dark:text-neutral-500 text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"><span class="iconify text-[18px]" data-icon="mdi:github"></span></a>
+      <a href="https://x.com/gucluyumhe" target="_blank" class="dark:text-neutral-500 text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"><span class="iconify text-[16px]" data-icon="ri:twitter-x-fill"></span></a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

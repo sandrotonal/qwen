@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Ömer Özbay</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="description" content="Yazılım, teknoloji ve mimari üzerine derinlemesine yazılar. React, Node.js, TypeScript, DevOps ve modern web geliştirme hakkında teknik blog.">
+  <meta name="keywords" content="yazılım, blog, react, nodejs, typescript, devops, web geliştirme, javascript, postgresql, docker">
+  <meta name="author" content="Ömer Özbay">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://gucluyumhe.dev/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gucluyumhe.dev/">
+  <meta property="og:title" content="Ömer Özbay — Full Stack Developer & Blog">
+  <meta property="og:description" content="Yazılım, teknoloji ve mimari üzerine derinlemesine yazılar.">
+  <meta property="og:image" content="https://gucluyumhe.dev/images/og-image.jpg">
+  <meta property="og:locale" content="tr_TR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://gucluyumhe.dev/">
+  <meta name="twitter:title" content="Ömer Özbay — Full Stack Developer & Blog">
+  <meta name="twitter:description" content="Yazılım, teknoloji ve mimari üzerine derinlemesine yazılar.">
+  <meta name="twitter:image" content="https://gucluyumhe.dev/images/og-image.jpg">
+  <meta name="twitter:creator" content="@gucluyumhe">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="images/ömer.jpeg">
+  <link rel="apple-touch-icon" href="images/ömer.jpeg">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://code.iconify.design">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            surface: { DEFAULT: '#141414', light: '#F5F5F5' },
+            card: { DEFAULT: '#1A1A1A', light: '#FFFFFF' },
+            border: { DEFAULT: '#262626', light: '#E5E5E5' },
+            accent: { DEFAULT: '#3B82F6', light: '#2563EB', soft: '#60A5FA' },
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards',
+            'fade-up-delay-1': 'fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s forwards',
+            'fade-up-delay-2': 'fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s forwards',
+            'fade-up-delay-3': 'fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s forwards',
+            'fade-up-delay-4': 'fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s forwards',
+            'slide-in': 'slideIn 0.3s ease forwards',
+            'pulse-ring': 'pulseRing 2s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeUp: {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' },
+            },
+            slideIn: {
+              from: { width: '0%' },
+              to: { width: 'var(--scroll-width)' },
+            },
+            pulseRing: {
+              '0%, 100%': { boxShadow: '0 0 0 0 rgba(59,130,246,0.4)' },
+              '50%': { boxShadow: '0 0 0 12px rgba(59,130,246,0)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css?v=4">
+  <style>
+    /* Modern Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3f3f46;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #52525b;
+    }
+    
+    html {
+       -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+  <style>
+    /* Modern Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+    html { -webkit-tap-highlight-color: transparent; }
+    
+    /* Elegant underline animation for nav */
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: currentColor;
+      transform-origin: bottom right;
+      transition: transform 0.3s ease-out;
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    .nav-active::after {
+      transform: scaleX(1);
+    }
+  </style>
+  <style>
+    /* Modern Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+    html { -webkit-tap-highlight-color: transparent; }
+    
+    /* Elegant underline animation for nav */
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: currentColor;
+      transform-origin: bottom right;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    .nav-active::after {
+      transform: scaleX(1);
+    }
+  </style>
+
+  <!-- Google Analytics & Perf -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRACKINGID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TRACKINGID');
+  </script>
+</head>
+<body class="min-h-screen bg-[#FAFAFA] dark:bg-[#0A0A0A] text-neutral-800 dark:text-neutral-200 antialiased selection:bg-neutral-200 dark:selection:bg-neutral-800 selection:text-neutral-900 dark:selection:text-white font-sans">
+  <div id="scroll-progress" class="h-[2px] bg-neutral-900 dark:bg-white fixed top-0 left-0 z-[100] transition-all duration-300 ease-out" style="width: var(--scroll-width, 0%);"></div>
+  
+  <div id="toast" class="toast fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] px-5 py-3 rounded-full text-sm font-medium shadow-2xl flex items-center gap-2 dark:bg-[#1A1A1A] bg-white border dark:border-neutral-800 border-neutral-200 transition-all duration-300">
+    <span class="iconify text-green-500" data-icon="lucide:check-circle-2"></span>
+    <span id="toast-message"></span>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[#FAFAFA]/70 dark:bg-[#0A0A0A]/70">
+    <div class="max-w-4xl mx-auto px-5 h-20 sm:h-24 flex items-center justify-between">
+      <a href="index.html" class="flex items-center group shrink-0">
+        <span class="font-extrabold text-[16px] sm:text-[18px] dark:text-white text-neutral-900 tracking-[0.15em] uppercase" style="font-family: 'Inter', sans-serif;">Ömer Özbay</span>
+      </a>
+      
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-900 dark:text-white nav-active">Blog</a>
+        <a href="hakkimda.html" class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white ">Hakkımda</a>
+        <a href="iletisim.html" class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white ">İletişim</a>
+      </nav>
+      
+      <div class="flex items-center gap-4">
+        <button onclick="toggleTheme()" class="flex items-center justify-center dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 shrink-0" title="Tema">
+          <span class="iconify text-[20px] theme-icon dark-icon" data-icon="solar:moon-linear"></span>
+          <span class="iconify text-[20px] theme-icon light-icon hidden" data-icon="solar:sun-linear"></span>
+        </button>
+        <button onclick="toggleMobileMenu()" class="flex md:hidden items-center justify-center dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 shrink-0">
+          <span class="iconify text-[24px]" data-icon="solar:hamburger-menu-linear"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  
+  
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/20 dark:bg-black/60 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-all duration-400 ease-out" onclick="toggleMobileMenu()"></div>
+  
+  <div id="mobile-menu" class="fixed top-0 right-0 w-full sm:w-80 h-screen bg-[#FAFAFA]/95 dark:bg-[#0A0A0A]/95 backdrop-blur-xl border-l border-black/5 dark:border-white/5 z-[70] transform translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col items-center justify-center">
+    <button onclick="toggleMobileMenu()" class="absolute top-8 right-6 w-10 h-10 flex items-center justify-center dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors">
+      <span class="iconify text-2xl" data-icon="lucide:x"></span>
+    </button>
+    
+    <nav class="flex flex-col items-center gap-8 text-center">
+      <a href="index.html" class="text-[22px] font-medium tracking-wide transition-colors duration-400 text-neutral-900 dark:text-white opacity-100">Blog</a>
+      <a href="hakkimda.html" class="text-[22px] font-medium tracking-wide transition-colors duration-400 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white opacity-90 hover:opacity-100">Hakkımda</a>
+      <a href="iletisim.html" class="text-[22px] font-medium tracking-wide transition-colors duration-400 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white opacity-90 hover:opacity-100">İletişim</a>
+    </nav>
+    
+    <div class="absolute bottom-12 flex gap-6">
+      <a href="https://github.com/sandrotonal" target="_blank" class="dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300"><span class="iconify text-2xl" data-icon="mdi:github"></span></a>
+      <a href="https://x.com/gucluyumhe" target="_blank" class="dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300"><span class="iconify text-[22px]" data-icon="ri:twitter-x-fill"></span></a>
+      <a href="https://t.me/islamakhachev" target="_blank" class="dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300"><span class="iconify text-2xl" data-icon="mdi:telegram"></span></a>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-6">
+
+    <!-- HERO SECTION -->
+    <section class="py-16 md:py-24 flex flex-col items-center text-center">
+      <!-- Avatar -->
+      <div class="anim-init animate-fade-up mb-6">
+        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full border-[3px] border-accent/40 p-1 avatar-ring avatar-float cursor-pointer">
+          <img loading="lazy" decoding="async" src="images/ömer.jpeg" alt="Ömer Özbay" decoding="async"
+            class="w-full h-full rounded-full object-cover object-top">
+        </div>
+      </div>
+
+      <!-- Name -->
+      <h1 class="anim-init animate-fade-up-delay-1 text-3xl md:text-[2.5rem] font-bold tracking-[-0.02em] dark:text-white text-neutral-900">
+        Ömer Özbay
+      </h1>
+
+      <!-- Title -->
+      <p class="anim-init animate-fade-up-delay-2 mt-3 text-sm uppercase tracking-[0.15em] font-medium dark:text-neutral-500 text-neutral-400">
+        Full Stack Developer
+      </p>
+
+      <!-- Bio -->
+      <p class="anim-init animate-fade-up-delay-3 mt-4 max-w-md text-base dark:text-neutral-400 text-neutral-500 leading-relaxed">
+        Bilgisayar Müh. öğrencisi. AI ve modern SaaS mimarileri üzerine çalışıyorum.
+      </p>
+
+      <!-- Social Links -->
+      <div class="anim-init animate-fade-up-delay-4 mt-6 flex items-center gap-3">
+        <a href="https://github.com/sandrotonal" target="_blank" class="w-10 h-10 rounded-xl flex items-center justify-center dark:text-neutral-400 text-neutral-500 dark:hover:text-white hover:text-neutral-900 dark:hover:bg-surface hover:bg-neutral-100 transition-all">
+          <span class="iconify text-lg" data-icon="mdi:github"></span>
+        </a>
+        <a href="https://x.com/gucluyumhe" target="_blank" class="w-10 h-10 rounded-xl flex items-center justify-center dark:text-neutral-400 text-neutral-500 dark:hover:text-white hover:text-neutral-900 dark:hover:bg-surface hover:bg-neutral-100 transition-all">
+          <span class="iconify text-lg" data-icon="mdi:linkedin"></span>
+        </a>
+        <a href="https://www.instagram.com/00mer04/" target="_blank" class="w-10 h-10 rounded-xl flex items-center justify-center dark:text-neutral-400 text-neutral-500 dark:hover:text-white hover:text-neutral-900 dark:hover:bg-surface hover:bg-neutral-100 transition-all">
+          <span class="iconify text-lg" data-icon="mdi:twitter"></span>
+        </a>
+      </div>
+
+      <!-- Tech Stack Icons -->
+      <div class="anim-init animate-fade-up-delay-4 mt-8 flex items-center gap-3">
+        <div class="tooltip-wrap">
+          <div class="w-9 h-9 rounded-xl dark:bg-surface bg-neutral-100 flex items-center justify-center dark:text-neutral-300 text-neutral-600 hover:dark:text-accent hover:text-accent transition-colors cursor-default">
+            <span class="iconify text-lg" data-icon="logos:react"></span>
+          </div>
+          <span class="tooltip-text">React</span>
+        </div>
+        <div class="tooltip-wrap">
+          <div class="w-9 h-9 rounded-xl dark:bg-surface bg-neutral-100 flex items-center justify-center dark:text-neutral-300 text-neutral-600 hover:dark:text-accent hover:text-accent transition-colors cursor-default">
+            <span class="iconify text-lg" data-icon="logos:nextjs-icon" data-width="18"></span>
+          </div>
+          <span class="tooltip-text">Next.js</span>
+        </div>
+        <div class="tooltip-wrap">
+          <div class="w-9 h-9 rounded-xl dark:bg-surface bg-neutral-100 flex items-center justify-center dark:text-neutral-300 text-neutral-600 hover:dark:text-accent hover:text-accent transition-colors cursor-default">
+            <span class="iconify text-lg" data-icon="logos:nodejs-icon" data-width="18"></span>
+          </div>
+          <span class="tooltip-text">Node.js</span>
+        </div>
+        <div class="tooltip-wrap">
+          <div class="w-9 h-9 rounded-xl dark:bg-surface bg-neutral-100 flex items-center justify-center dark:text-neutral-300 text-neutral-600 hover:dark:text-accent hover:text-accent transition-colors cursor-default">
+            <span class="iconify text-lg" data-icon="logos:typescript-icon" data-width="18"></span>
+          </div>
+          <span class="tooltip-text">TypeScript</span>
+        </div>
+        <div class="tooltip-wrap">
+          <div class="w-9 h-9 rounded-xl dark:bg-surface bg-neutral-100 flex items-center justify-center dark:text-neutral-300 text-neutral-600 hover:dark:text-accent hover:text-accent transition-colors cursor-default">
+            <span class="iconify text-lg" data-icon="logos:docker-icon" data-width="18"></span>
+          </div>
+          <span class="tooltip-text">Docker</span>
+        </div>
+        <div class="tooltip-wrap">
+          <div class="w-9 h-9 rounded-xl dark:bg-surface bg-neutral-100 flex items-center justify-center dark:text-neutral-300 text-neutral-600 hover:dark:text-accent hover:text-accent transition-colors cursor-default">
+            <span class="iconify text-lg" data-icon="logos:postgresql"></span>
+          </div>
+          <span class="tooltip-text">PostgreSQL</span>
+        </div>
+        <div class="tooltip-wrap">
+          <div class="w-9 h-9 rounded-xl dark:bg-surface bg-neutral-100 flex items-center justify-center dark:text-neutral-300 text-neutral-600 hover:dark:text-accent hover:text-accent transition-colors cursor-default">
+            <span class="iconify text-lg" data-icon="logos:python"></span>
+          </div>
+          <span class="tooltip-text">Python</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED POST -->
+    <section class="mb-16">
+      <div class="flex items-center gap-2 mb-6">
+        <span class="iconify text-accent" data-icon="lucide:star"></span>
+        <h2 class="text-sm font-semibold uppercase tracking-[0.1em] dark:text-neutral-400 text-neutral-500">Öne Çıkan</h2>
+      </div>
+      <a href="blog/react-server-components.html" class="card-glow block rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group">
+        <div class="relative aspect-[21/9] md:aspect-[21/8] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=1400&h=560&fit=crop" alt="Featured" loading="lazy" decoding="async"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag-pill px-3 py-1 rounded-full text-xs font-medium bg-white/15 text-white/80">React</span>
+              <span class="tag-pill px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white/70">Performance</span>
+            </div>
+            <h3 class="text-xl md:text-3xl font-semibold text-white tracking-tight leading-tight max-w-3xl">
+              React 19 ile Server Components: Derinlemesine İnceleme
+            </h3>
+            <div class="flex items-center gap-4 mt-3 text-sm text-white/60">
+              <span class="flex items-center gap-1.5">
+                <span class="iconify text-xs" data-icon="lucide:calendar"></span>
+                15 Mart 2026
+              </span>
+              <span class="flex items-center gap-1.5">
+                <span class="iconify text-xs" data-icon="lucide:clock"></span>
+                12 dk okuma
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- CONTENT GRID: Posts + Sidebar -->
+    <div class="flex flex-col lg:flex-row gap-12 pb-20">
+
+      <!-- LEFT: Posts -->
+      <div class="flex-1 min-w-0">
+        <!-- Section Header + Category Filters -->
+        <div class="mb-8">
+          <h2 class="text-xl font-semibold tracking-tight dark:text-white text-neutral-900 mb-4">Son Yazılar</h2>
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none" id="category-filters" style="-ms-overflow-style:none;scrollbar-width:none">
+            <button onclick="filterCategory('all', this)" class="cat-active shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-300 text-neutral-600 transition-all hover:dark:text-white hover:text-neutral-900">Tümü</button>
+            <button onclick="filterCategory('react', this)" class="shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-500 text-neutral-400 transition-all hover:dark:text-white hover:text-neutral-900">React</button>
+            <button onclick="filterCategory('nodejs', this)" class="shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-500 text-neutral-400 transition-all hover:dark:text-white hover:text-neutral-900">Node.js</button>
+            <button onclick="filterCategory('devops', this)" class="shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-500 text-neutral-400 transition-all hover:dark:text-white hover:text-neutral-900">DevOps</button>
+            <button onclick="filterCategory('typescript', this)" class="shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-500 text-neutral-400 transition-all hover:dark:text-white hover:text-neutral-900">TypeScript</button>
+            <button onclick="filterCategory('database', this)" class="shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-500 text-neutral-400 transition-all hover:dark:text-white hover:text-neutral-900">Database</button>
+          </div>
+        </div>
+
+        <!-- Posts Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5" id="posts-grid">
+
+          <!-- Post Card NEW AI -->
+          <a href="blog/ai-driven-development-2026.html" class="blog-card card-glow rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group" data-category="artificial-intelligence">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=375&fit=crop" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag-pill px-2.5 py-0.5 rounded-full text-[0.65rem] font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">Yapay Zeka</span>
+              </div>
+              <h3 class="text-[0.95rem] font-semibold dark:text-white text-neutral-900 leading-snug tracking-tight mb-2 group-hover:text-accent transition-colors line-clamp-2">2026'da Yapay Zeka Odaklı Yazılım Geliştirme</h3>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed line-clamp-2 mb-3">Agentic AI sistemleri ve çoklu model orkestrasyonları sayesinde yazılım süreçlerinin evrimi.</p>
+              <div class="flex items-center gap-3 text-[0.7rem] dark:text-neutral-600 text-neutral-400">
+                <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:clock" data-width="11"></span>8 dk</span>
+                <time datetime='2026-03-24'>24 Mar 2026</time>
+              </div>
+            </div>
+          </a>
+
+          <!-- Post Card NEW FRONTEND -->
+          <a href="blog/modern-monorepo-architectures.html" class="blog-card card-glow rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group" data-category="frontend">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=375&fit=crop" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag-pill px-2.5 py-0.5 rounded-full text-[0.65rem] font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">Frontend</span>
+              </div>
+              <h3 class="text-[0.95rem] font-semibold dark:text-white text-neutral-900 leading-snug tracking-tight mb-2 group-hover:text-accent transition-colors line-clamp-2">Modern Frontend: Micro-Frontends ve Monorepo</h3>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed line-clamp-2 mb-3">Turborepo, Nx ve Module Federation ile büyüyen projeleri yönetmenin kuralları.</p>
+              <div class="flex items-center gap-3 text-[0.7rem] dark:text-neutral-600 text-neutral-400">
+                <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:clock" data-width="11"></span>12 dk</span>
+                <time datetime='2026-03-15'>15 Mar 2026</time>
+              </div>
+            </div>
+          </a>
+
+          <!-- Post Card NEW BACKEND -->
+          <a href="blog/serverless-edge-computing-2026.html" class="blog-card card-glow rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group" data-category="backend">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=375&fit=crop" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag-pill px-2.5 py-0.5 rounded-full text-[0.65rem] font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">Backend</span>
+              </div>
+              <h3 class="text-[0.95rem] font-semibold dark:text-white text-neutral-900 leading-snug tracking-tight mb-2 group-hover:text-accent transition-colors line-clamp-2">Serverless Mimari ve Edge Computing'in Yükselişi</h3>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed line-clamp-2 mb-3">Edge ile ışık hızında global performans algoritmaları.</p>
+              <div class="flex items-center gap-3 text-[0.7rem] dark:text-neutral-600 text-neutral-400">
+                <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:clock" data-width="11"></span>10 dk</span>
+                <time datetime='2026-02-28'>28 Şub 2026</time>
+              </div>
+            </div>
+          </a>
+
+
+          <!-- Post Card 1 -->
+          <a href="blog/nodejs-streams.html" class="blog-card card-glow rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group" data-category="nodejs">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=375&fit=crop" alt="Node.js Streams" loading="lazy" decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag-pill px-2.5 py-0.5 rounded-full text-[0.65rem] font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">Node.js</span>
+              </div>
+              <h3 class="text-[0.95rem] font-semibold dark:text-white text-neutral-900 leading-snug tracking-tight mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                Node.js Stream API: Sıfırdan Tam Rehber
+              </h3>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed line-clamp-2 mb-3">
+                Readable, Writable, Transform ve Duplex stream'lerin mantığını örneklerle keşfedin.
+              </p>
+              <div class="flex items-center gap-3 text-[0.7rem] dark:text-neutral-600 text-neutral-400">
+                <span class="flex items-center gap-1">
+                  <span class="iconify" data-icon="lucide:clock" data-width="11"></span>
+                  8 dk
+                </span>
+                <time datetime='2026-02-12'>12 Şub 2026</time>
+              </div>
+            </div>
+          </a>
+
+          <!-- Post Card 2 -->
+          <a href="blog/docker-multistage.html" class="blog-card card-glow rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group" data-category="devops">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=600&h=375&fit=crop" alt="Docker" loading="lazy" decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag-pill px-2.5 py-0.5 rounded-full text-[0.65rem] font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">DevOps</span>
+              </div>
+              <h3 class="text-[0.95rem] font-semibold dark:text-white text-neutral-900 leading-snug tracking-tight mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                Docker Multi-Stage Builds ile Image Boyutunu %80 Azaltın
+              </h3>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed line-clamp-2 mb-3">
+                Production'da küçük, güvenli ve hızlı Docker image'ları oluşturmanın en iyi yolları.
+              </p>
+              <div class="flex items-center gap-3 text-[0.7rem] dark:text-neutral-600 text-neutral-400">
+                <span class="flex items-center gap-1">
+                  <span class="iconify" data-icon="lucide:clock" data-width="11"></span>
+                  15 dk
+                </span>
+                <time datetime='2026-01-25'>25 Oca 2026</time>
+              </div>
+            </div>
+          </a>
+
+          <!-- Post Card 3 -->
+          <a href="blog/typescript-54.html" class="blog-card card-glow rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group" data-category="typescript">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=600&h=375&fit=crop" alt="TypeScript" loading="lazy" decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag-pill px-2.5 py-0.5 rounded-full text-[0.65rem] font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">TypeScript</span>
+              </div>
+              <h3 class="text-[0.95rem] font-semibold dark:text-white text-neutral-900 leading-snug tracking-tight mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                TypeScript 5.4: NoInfer ve Yeni Utility Tipler
+              </h3>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed line-clamp-2 mb-3">
+                NoInfer tipi, isTemplateLiteralType ve diğer yenilikleri pratik örneklerle inceleyelim.
+              </p>
+              <div class="flex items-center gap-3 text-[0.7rem] dark:text-neutral-600 text-neutral-400">
+                <span class="flex items-center gap-1">
+                  <span class="iconify" data-icon="lucide:clock" data-width="11"></span>
+                  10 dk
+                </span>
+                <time datetime='2025-12-10'>10 Ara 2025</time>
+              </div>
+            </div>
+          </a>
+
+          <!-- Post Card 4 -->
+          <a href="blog/postgresql-tuning.html" class="blog-card card-glow rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group" data-category="database">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600&h=375&fit=crop" alt="PostgreSQL" loading="lazy" decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag-pill px-2.5 py-0.5 rounded-full text-[0.65rem] font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">Database</span>
+              </div>
+              <h3 class="text-[0.95rem] font-semibold dark:text-white text-neutral-900 leading-snug tracking-tight mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                PostgreSQL Performance Tuning: EXPLAIN ANALYZE Rehberi
+              </h3>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed line-clamp-2 mb-3">
+                Yavaş sorguları tespit edip, index stratejileriyle saniyelerden milisaniyelere düşürme.
+              </p>
+              <div class="flex items-center gap-3 text-[0.7rem] dark:text-neutral-600 text-neutral-400">
+                <span class="flex items-center gap-1">
+                  <span class="iconify" data-icon="lucide:clock" data-width="11"></span>
+                  18 dk
+                </span>
+                <span>3 hafta önce</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Post Card 5 -->
+          <a href="blog/react-state-management.html" class="blog-card card-glow rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group" data-category="react">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=375&fit=crop" alt="React" loading="lazy" decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag-pill px-2.5 py-0.5 rounded-full text-[0.65rem] font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">React</span>
+              </div>
+              <h3 class="text-[0.95rem] font-semibold dark:text-white text-neutral-900 leading-snug tracking-tight mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                2026'da React State Management: Zustand vs Jotai vs Signals
+              </h3>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed line-clamp-2 mb-3">
+                Her üç kütüphaneyi benchmark'larla karşılaştırıp, doğru seçimi yapmanıza yardımcı oluyorum.
+              </p>
+              <div class="flex items-center gap-3 text-[0.7rem] dark:text-neutral-600 text-neutral-400">
+                <span class="flex items-center gap-1">
+                  <span class="iconify" data-icon="lucide:clock" data-width="11"></span>
+                  14 dk
+                </span>
+                <span>1 ay önce</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Post Card 6 -->
+          <a href="blog/git-branching.html" class="blog-card card-glow rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group" data-category="devops">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=600&h=375&fit=crop" alt="Git" loading="lazy" decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag-pill px-2.5 py-0.5 rounded-full text-[0.65rem] font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">DevOps</span>
+              </div>
+              <h3 class="text-[0.95rem] font-semibold dark:text-white text-neutral-900 leading-snug tracking-tight mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                Git Branching Stratejileri: Trunk-Based vs GitFlow
+              </h3>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed line-clamp-2 mb-3">
+                Ekibinizin büyüklüğüne göre doğru branching stratejisini nasıl seçersiniz?
+              </p>
+              <div class="flex items-center gap-3 text-[0.7rem] dark:text-neutral-600 text-neutral-400">
+                <span class="flex items-center gap-1">
+                  <span class="iconify" data-icon="lucide:clock" data-width="11"></span>
+                  6 dk
+                </span>
+                <span>1 ay önce</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Load More -->
+        <div id="hidden-posts" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-5" style="display:none!important">
+          <a href="blog/nextjs-app-router.html" class="blog-card card-glow rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group" data-category="react">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=375&fit=crop" alt="Next.js" loading="lazy" decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag-pill px-2.5 py-0.5 rounded-full text-[0.65rem] font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">Next.js</span>
+              </div>
+              <h3 class="text-[0.95rem] font-semibold dark:text-white text-neutral-900 leading-snug tracking-tight mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                Next.js 14 App Router: Pages Router'dan Geçiş Rehberi
+              </h3>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed line-clamp-2 mb-3">
+                Gerçek bir projeyi adım adım migrate ettim. Bundle %47 küçüldü, LCP 2.8s'den 0.9s'ye düştü.
+              </p>
+              <div class="flex items-center gap-3 text-[0.7rem] dark:text-neutral-600 text-neutral-400">
+                <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:clock" data-width="11"></span>16 dk</span>
+                <span>Kasım 2024</span>
+              </div>
+            </div>
+          </a>
+          <a href="blog/web-vitals-2024.html" class="blog-card card-glow rounded-2xl overflow-hidden border dark:border-border border-border-light dark:bg-card bg-white group" data-category="react">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=375&fit=crop" alt="Web Vitals" loading="lazy" decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag-pill px-2.5 py-0.5 rounded-full text-[0.65rem] font-medium dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500">Performance</span>
+              </div>
+              <h3 class="text-[0.95rem] font-semibold dark:text-white text-neutral-900 leading-snug tracking-tight mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                Core Web Vitals 2024: INP Metriği ve Gerçek Dünya Optimizasyonları
+              </h3>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed line-clamp-2 mb-3">
+                Google'un FID'i INP ile değiştirmesi ne anlama geliyor? React'ta useTransition ile INP optimizasyonu.
+              </p>
+              <div class="flex items-center gap-3 text-[0.7rem] dark:text-neutral-600 text-neutral-400">
+                <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:clock" data-width="11"></span>13 dk</span>
+                <span>Mart 2024</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="mt-10 flex justify-center">
+          <button id="load-more-btn" onclick="loadMore()" class="px-6 py-2.5 rounded-xl text-sm font-medium border dark:border-border border-border-light dark:text-neutral-300 text-neutral-600 dark:hover:text-white hover:text-neutral-900 dark:hover:bg-surface hover:bg-neutral-50 transition-all flex items-center gap-2">
+            Daha Fazla Yazı
+            <span class="iconify" data-icon="lucide:arrow-down" data-width="14"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sidebar -->
+      <aside class="w-full lg:w-80 shrink-0 space-y-8">
+
+        <!-- Profil Kartı -->
+        <div class="rounded-2xl border dark:border-border border-border-light dark:bg-card bg-white p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full overflow-hidden border dark:border-border border-border-light shrink-0">
+              <img src="images/ömer.jpeg" alt="Ömer" class="w-full h-full object-cover object-top" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <p class="text-sm font-semibold dark:text-white text-neutral-900">Ömer Özbay</p>
+              <p class="text-xs dark:text-neutral-500 text-neutral-400">gucluyumhe.dev</p>
+            </div>
+          </div>
+          <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed mb-4">Full-stack developer. React, Node.js ve sistem tasarımı üzerine yazıyor.</p>
+          <div class="flex items-center gap-2 flex-wrap">
+            <a href="https://github.com/sandrotonal" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500 dark:hover:text-white hover:text-neutral-900 dark:hover:bg-neutral-800 hover:bg-neutral-200 transition-all" title="GitHub">
+              <span class="iconify" data-icon="mdi:github" data-width="15"></span>
+            </a>
+            <a href="https://x.com/gucluyumhe" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500 dark:hover:text-white hover:text-neutral-900 dark:hover:bg-neutral-800 hover:bg-neutral-200 transition-all" title="X / Twitter">
+              <span class="iconify" data-icon="mdi:twitter" data-width="15"></span>
+            </a>
+            <a href="https://t.me/islamakhachev" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500 dark:hover:text-white hover:text-neutral-900 dark:hover:bg-neutral-800 hover:bg-neutral-200 transition-all" title="Telegram">
+              <span class="iconify" data-icon="mdi:telegram" data-width="15"></span>
+            </a>
+            <a href="https://www.instagram.com/00mer04/" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500 dark:hover:text-white hover:text-neutral-900 dark:hover:bg-neutral-800 hover:bg-neutral-200 transition-all" title="Instagram">
+              <span class="iconify" data-icon="mdi:instagram" data-width="15"></span>
+            </a>
+            <a href="https://gucluyumhe.dev/" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center dark:bg-surface bg-neutral-100 dark:text-neutral-400 text-neutral-500 dark:hover:text-white hover:text-neutral-900 dark:hover:bg-neutral-800 hover:bg-neutral-200 transition-all" title="Website">
+              <span class="iconify" data-icon="lucide:globe" data-width="14"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Popüler Yazılar -->
+        <div class="rounded-2xl border dark:border-border border-border-light dark:bg-card bg-white p-6">
+          <h3 class="text-xs font-mono tracking-[0.15em] uppercase dark:text-neutral-500 text-neutral-400 mb-4">Popüler Yazılar</h3>
+          <div class="space-y-3">
+            <a href="blog/react-server-components.html" class="flex items-start gap-3 group">
+              <span class="text-xs font-mono dark:text-neutral-700 text-neutral-300 mt-0.5 shrink-0">01</span>
+              <div class="min-w-0">
+                <p class="text-xs dark:text-neutral-300 text-neutral-700 leading-snug group-hover:text-accent transition-colors line-clamp-2">React Server Components Neden Önemli?</p>
+                <span class="text-[0.65rem] dark:text-neutral-600 text-neutral-400">4.2K görüntülenme</span>
+              </div>
+            </a>
+            <a href="blog/web-vitals-2024.html" class="flex items-start gap-3 group">
+              <span class="text-xs font-mono dark:text-neutral-700 text-neutral-300 mt-0.5 shrink-0">02</span>
+              <div class="min-w-0">
+                <p class="text-xs dark:text-neutral-300 text-neutral-700 leading-snug group-hover:text-accent transition-colors line-clamp-2">Core Web Vitals 2024: INP Metriği</p>
+                <span class="text-[0.65rem] dark:text-neutral-600 text-neutral-400">3.8K görüntülenme</span>
+              </div>
+            </a>
+            <a href="blog/nextjs-app-router.html" class="flex items-start gap-3 group">
+              <span class="text-xs font-mono dark:text-neutral-700 text-neutral-300 mt-0.5 shrink-0">03</span>
+              <div class="min-w-0">
+                <p class="text-xs dark:text-neutral-300 text-neutral-700 leading-snug group-hover:text-accent transition-colors line-clamp-2">Next.js 14 App Router Geçiş Rehberi</p>
+                <span class="text-[0.65rem] dark:text-neutral-600 text-neutral-400">3.1K görüntülenme</span>
+              </div>
+            </a>
+            <a href="blog/postgresql-tuning.html" class="flex items-start gap-3 group">
+              <span class="text-xs font-mono dark:text-neutral-700 text-neutral-300 mt-0.5 shrink-0">04</span>
+              <div class="min-w-0">
+                <p class="text-xs dark:text-neutral-300 text-neutral-700 leading-snug group-hover:text-accent transition-colors line-clamp-2">PostgreSQL Performance Tuning</p>
+                <span class="text-[0.65rem] dark:text-neutral-600 text-neutral-400">2.7K görüntülenme</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bülten -->
+        <div class="rounded-2xl border dark:border-border border-border-light dark:bg-card bg-white p-6">
+          <h3 class="text-xs font-mono tracking-[0.15em] uppercase dark:text-neutral-500 text-neutral-400 mb-1">Bülten</h3>
+          <p class="text-xs dark:text-neutral-500 text-neutral-400 leading-relaxed mb-4 mt-2">Yeni yazılardan ilk sen haberdar ol. Haftada bir, spam yok.</p>
+          <form onsubmit="handleSubscribe(event)" class="space-y-2">
+            <input type="email" id="newsletter-email" placeholder="email@example.com" required
+              class="w-full px-3.5 py-2.5 rounded-xl text-sm dark:bg-surface bg-neutral-50 border dark:border-border border-neutral-200 dark:text-white text-neutral-900 placeholder:dark:text-neutral-600 placeholder:text-neutral-400 outline-none focus:border-accent transition-colors">
+            <button type="submit"
+              class="w-full px-4 py-2.5 rounded-xl text-sm font-medium bg-accent text-white hover:bg-accent-light transition-colors flex items-center justify-center gap-2">
+              <span class="iconify" data-icon="lucide:send" data-width="13"></span>
+              Abone Ol
+            </button>
+          </form>
+          <p class="text-[0.65rem] dark:text-neutral-600 text-neutral-400 mt-2.5">200+ geliştirici abone oldu</p>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="rounded-2xl border dark:border-border border-border-light dark:bg-card bg-white p-6">
+          <h3 class="text-xs font-mono tracking-[0.15em] uppercase dark:text-neutral-500 text-neutral-400 mb-4">Kullandığım Araçlar</h3>
+          <div class="grid grid-cols-3 gap-2.5">
+            <div class="flex flex-col items-center gap-1.5 p-3 rounded-xl dark:bg-surface bg-neutral-50 dark:hover:bg-neutral-800 hover:bg-neutral-100 transition-colors cursor-default">
+              <span class="iconify text-xl" data-icon="logos:visual-studio-code"></span>
+              <span class="text-[0.6rem] dark:text-neutral-500 text-neutral-400 font-medium">VS Code</span>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 p-3 rounded-xl dark:bg-surface bg-neutral-50 dark:hover:bg-neutral-800 hover:bg-neutral-100 transition-colors cursor-default">
+              <span class="iconify text-xl" data-icon="logos:figma"></span>
+              <span class="text-[0.6rem] dark:text-neutral-500 text-neutral-400 font-medium">Figma</span>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 p-3 rounded-xl dark:bg-surface bg-neutral-50 dark:hover:bg-neutral-800 hover:bg-neutral-100 transition-colors cursor-default">
+              <span class="iconify text-xl" data-icon="logos:github-icon"></span>
+              <span class="text-[0.6rem] dark:text-neutral-500 text-neutral-400 font-medium">GitHub</span>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 p-3 rounded-xl dark:bg-surface bg-neutral-50 dark:hover:bg-neutral-800 hover:bg-neutral-100 transition-colors cursor-default">
+              <span class="iconify text-xl" data-icon="logos:vercel-icon" data-width="20"></span>
+              <span class="text-[0.6rem] dark:text-neutral-500 text-neutral-400 font-medium">Vercel</span>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 p-3 rounded-xl dark:bg-surface bg-neutral-50 dark:hover:bg-neutral-800 hover:bg-neutral-100 transition-colors cursor-default">
+              <span class="iconify text-xl" data-icon="logos:redis"></span>
+              <span class="text-[0.6rem] dark:text-neutral-500 text-neutral-400 font-medium">Redis</span>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 p-3 rounded-xl dark:bg-surface bg-neutral-50 dark:hover:bg-neutral-800 hover:bg-neutral-100 transition-colors cursor-default">
+              <span class="iconify text-xl" data-icon="logos:tailwindcss-icon" data-width="20"></span>
+              <span class="text-[0.6rem] dark:text-neutral-500 text-neutral-400 font-medium">Tailwind</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Son Snippet -->
+        <div class="rounded-2xl border dark:border-border border-border-light dark:bg-card bg-white p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xs font-mono tracking-[0.15em] uppercase dark:text-neutral-500 text-neutral-400">Son Snippet</h3>
+            <button onclick="copyCode()" class="text-xs dark:text-neutral-500 text-neutral-400 hover:text-accent transition-colors flex items-center gap-1">
+              <span class="iconify" data-icon="lucide:copy" data-width="12"></span>
+              Kopyala
+            </button>
+          </div>
+          <div class="prose-code text-[0.78rem]" id="code-block">
+<span style="color:#60A5FA">const</span> <span style="color:#FBBF24">debounce</span> = <span style="color:#60A5FA">async</span> (<span style="color:#F87171">fn</span>, <span style="color:#F87171">ms</span>) => {
+  <span style="color:#60A5FA">let</span> timer;
+  <span style="color:#60A5FA">return</span> (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), ms);
+  };
+};</div>
+          <p class="text-[0.65rem] dark:text-neutral-600 text-neutral-400 mt-3">utils/debounce.ts — 3 gün önce</p>
+        </div>
+
+      </aside>
+    </div>
+
+
+
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="mt-20 py-8 border-t border-black/5 dark:border-white/5 mx-auto max-w-4xl px-5 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-4 text-sm font-medium dark:text-neutral-500 text-neutral-500">
+      <a href="index.html" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Blog</a>
+      <span>&middot;</span>
+      <a href="hakkimda.html" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Hakkımda</a>
+      <span>&middot;</span>
+      <a href="iletisim.html" class="hover:text-neutral-900 dark:hover:text-white transition-colors">İletişim</a>
+    </div>
+    
+    <div class="text-[12px] dark:text-neutral-500 text-neutral-400 flex items-center gap-1">
+      © 2026 Ömer Özbay.
+    </div>
+
+    <div class="flex items-center gap-4">
+      <a href="https://github.com/sandrotonal" target="_blank" class="dark:text-neutral-500 text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"><span class="iconify text-[18px]" data-icon="mdi:github"></span></a>
+      <a href="https://x.com/gucluyumhe" target="_blank" class="dark:text-neutral-500 text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"><span class="iconify text-[16px]" data-icon="ri:twitter-x-fill"></span></a>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
