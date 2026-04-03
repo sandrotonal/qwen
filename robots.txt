@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://omerozbay.vercel.app/sitemap.xml
