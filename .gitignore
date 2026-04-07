@@ -1,0 +1,37 @@
+# System files
+.DS_Store
+Thumbs.db
+*.log
+nul
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build
+dist/
+build/
+node_modules/
+
+# Custom
+.agent/
+.kilo/
+image.png
+test_sync.txt
+test.txt
+apply_fixes.py
+add_blogs.py
+add_google_meta.py
+build_seo.py
+create_blog_posts.py
+final_touches.py
+fix_bio_avatar.py
+fix_blog.py
+fix_dates_seo.py
+fix_layout.py
+fix_menu_animation_and_font.py
+fix_menu_fonts.py
+inject_blogs_fixed.py
+istek.md

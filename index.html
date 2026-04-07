@@ -221,11 +221,11 @@
 
       <nav class="hidden md:flex items-center gap-8">
         <a href="index.html"
-          class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-900 dark:text-white nav-active">Blog</a>
+          class="relative text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-900 dark:text-white nav-active">Blog</a>
         <a href="hakkimda.html"
-          class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white ">Hakkımda</a>
+          class="relative text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white ">Hakkımda</a>
         <a href="iletisim.html"
-          class="relative pb-1 text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white ">İletişim</a>
+          class="relative text-[13px] font-medium tracking-wide transition-all duration-300 nav-link text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white ">İletişim</a>
       </nav>
 
       <div class="flex items-center gap-4">
@@ -285,11 +285,18 @@
     <!-- HERO SECTION -->
     <section class="py-16 md:py-24 flex flex-col items-center text-center">
       <!-- Avatar -->
-      <div class="anim-init animate-fade-up mb-6">
-        <div
-          class="w-28 h-28 md:w-32 md:h-32 rounded-full border-[3px] border-accent/40 p-1 avatar-ring avatar-float cursor-pointer">
-          <img loading="lazy" decoding="async" src="images/ömer.jpeg" alt="Ömer Özbay" decoding="async"
-            class="w-full h-full rounded-full object-cover object-top">
+      <div class="anim-init animate-fade-up mb-6 relative inline-block">
+        <!-- Spiral Wave Background -->
+        <svg class="spiral-wave" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 160px; height: 160px; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;">
+          <g opacity="0.4">
+            <circle cx="100" cy="100" r="55" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="8,4" class="spiral-ring spiral-1"/>
+            <circle cx="100" cy="100" r="75" fill="none" stroke="#3B82F6" stroke-width="1.2" stroke-dasharray="12,6" class="spiral-ring spiral-2"/>
+            <circle cx="100" cy="100" r="92" fill="none" stroke="#3B82F6" stroke-width="1" stroke-dasharray="14,5" class="spiral-ring spiral-3"/>
+          </g>
+        </svg>
+        <!-- Avatar Image -->
+        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full border-[3px] border-accent/40 p-1 avatar-ring avatar-float cursor-pointer relative z-10" style="animation: avatarRing 3s ease-in-out infinite, avatarFloat 4s ease-in-out infinite; box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1);">
+          <img loading="lazy" decoding="async" src="images/ömer.jpeg" alt="Ömer Özbay" decoding="async" class="w-full h-full rounded-full object-cover object-top">
         </div>
       </div>
 
